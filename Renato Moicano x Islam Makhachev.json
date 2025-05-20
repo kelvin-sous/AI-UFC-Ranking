@@ -1,0 +1,370 @@
+{
+  "lutador_1": {
+    "name": "Renato Moicano",
+    "nickname": null,
+    "wins": 20,
+    "losses": 6,
+    "draws": 1,
+    "height_cm": 180.34,
+    "weight_in_kg": 70.31,
+    "reach_in_cm": 182.88,
+    "stance": "Orthodox",
+    "date_of_birth": "1989-05-21",
+    "significant_strikes_landed_per_minute": 4.36,
+    "significant_striking_accuracy": 48.0,
+    "significant_strikes_absorbed_per_minute": 3.55,
+    "significant_strike_defence": 60.0,
+    "average_takedowns_landed_per_15_minutes": 1.82,
+    "takedown_accuracy": 44.0,
+    "takedown_defense": 71.0,
+    "average_submissions_attempted_per_15_minutes": 4.36,
+    "fight_history": [
+      {
+        "result": "next",
+        "opponent": "Renato MoicanoBeneil Dariush",
+        "event": "MatchupPreviewUFC 317: Topuria vs. OliveiraJun. 28, 2025",
+        "method": "MatchupPreview",
+        "round": "",
+        "time": "UFC 317: Topuria vs. OliveiraJun. 28, 2025",
+        "location": ""
+      },
+      {
+        "result": "loss",
+        "opponent": "Renato MoicanoIslam Makhachev",
+        "event": "00",
+        "method": "96",
+        "round": "01",
+        "time": "01",
+        "location": "UFC 311: Makhachev vs. MoicanoJan. 18, 2025"
+      },
+      {
+        "result": "win",
+        "opponent": "Renato MoicanoBenoit Saint Denis",
+        "event": "00",
+        "method": "5025",
+        "round": "10",
+        "time": "00",
+        "location": "UFC Fight Night: Moicano vs. Saint DenisSep. 28, 2024"
+      },
+      {
+        "result": "win",
+        "opponent": "Renato MoicanoJalin Turner",
+        "event": "01",
+        "method": "3616",
+        "round": "20",
+        "time": "00",
+        "location": "UFC 300: Pereira vs. HillApr. 13, 2024"
+      },
+      {
+        "result": "win",
+        "opponent": "Renato MoicanoDrew Dober",
+        "event": "00",
+        "method": "2323",
+        "round": "31",
+        "time": "00",
+        "location": "UFC Fight Night: Dolidze vs. ImavovFeb. 03, 2024"
+      },
+      {
+        "result": "win",
+        "opponent": "Renato MoicanoBrad Riddell",
+        "event": "00",
+        "method": "1014",
+        "round": "00",
+        "time": "10",
+        "location": "UFC 281: Adesanya vs. PereiraNov. 12, 2022"
+      },
+      {
+        "result": "loss",
+        "opponent": "Renato MoicanoRafael Dos Anjos",
+        "event": "01",
+        "method": "88149",
+        "round": "05",
+        "time": "00",
+        "location": "UFC 272: Covington vs. MasvidalMar. 05, 2022"
+      },
+      {
+        "result": "win",
+        "opponent": "Renato MoicanoAlexander Hernandez",
+        "event": "00",
+        "method": "3337",
+        "round": "20",
+        "time": "10",
+        "location": "UFC 271: Adesanya vs. Whittaker 2Feb. 12, 2022"
+      },
+      {
+        "result": "win",
+        "opponent": "Renato MoicanoJai Herbert",
+        "event": "00",
+        "method": "267",
+        "round": "50",
+        "time": "10",
+        "location": "UFC Fight Night: Gane vs. VolkovJun. 26, 2021"
+      },
+      {
+        "result": "loss",
+        "opponent": "Renato MoicanoRafael Fiziev",
+        "event": "01",
+        "method": "1521",
+        "round": "00",
+        "time": "00",
+        "location": "UFC 256: Figueiredo vs. MorenoDec. 12, 2020"
+      },
+      {
+        "result": "win",
+        "opponent": "Renato MoicanoDamir Hadzovic",
+        "event": "00",
+        "method": "11",
+        "round": "10",
+        "time": "10",
+        "location": "UFC Fight Night: Lee vs. OliveiraMar. 14, 2020"
+      },
+      {
+        "result": "loss",
+        "opponent": "Renato MoicanoChan Sung Jung",
+        "event": "01",
+        "method": "016",
+        "round": "00",
+        "time": "00",
+        "location": "UFC Fight Night: Moicano vs. The Korean ZombieJun. 22, 2019"
+      },
+      {
+        "result": "loss",
+        "opponent": "Renato MoicanoJose Aldo",
+        "event": "00",
+        "method": "2426",
+        "round": "00",
+        "time": "00",
+        "location": "UFC Fight Night: Assuncao vs. Moraes 2Feb. 02, 2019"
+      },
+      {
+        "result": "win",
+        "opponent": "Renato MoicanoCub Swanson",
+        "event": "10",
+        "method": "1720",
+        "round": "10",
+        "time": "10",
+        "location": "UFC 227: Dillashaw vs. Garbrandt 2Aug. 04, 2018"
+      },
+      {
+        "result": "win",
+        "opponent": "Renato MoicanoCalvin Kattar",
+        "event": "00",
+        "method": "11641",
+        "round": "00",
+        "time": "00",
+        "location": "UFC 223: Khabib vs. IaquintaApr. 07, 2018"
+      },
+      {
+        "result": "loss",
+        "opponent": "Renato MoicanoBrian Ortega",
+        "event": "00",
+        "method": "10965",
+        "round": "20",
+        "time": "01",
+        "location": "UFC 214: Cormier vs. Jones 2Jul. 29, 2017"
+      },
+      {
+        "result": "win",
+        "opponent": "Renato MoicanoJeremy Stephens",
+        "event": "00",
+        "method": "7056",
+        "round": "20",
+        "time": "00",
+        "location": "UFC on FOX: Johnson vs. ReisApr. 15, 2017"
+      },
+      {
+        "result": "win",
+        "opponent": "Renato MoicanoZubaira Tukhugov",
+        "event": "00",
+        "method": "4429",
+        "round": "03",
+        "time": "00",
+        "location": "UFC 198: Werdum vs MiocicMay. 14, 2016"
+      },
+      {
+        "result": "win",
+        "opponent": "Renato MoicanoTom Niinimaki",
+        "event": "00",
+        "method": "4833",
+        "round": "10",
+        "time": "10",
+        "location": "UFC Fight Night: Machida vs DollawayDec. 20, 2014"
+      }
+    ]
+  },
+  "lutador_2": {
+    "name": "Islam Makhachev",
+    "nickname": null,
+    "wins": 27,
+    "losses": 1,
+    "draws": 0,
+    "height_cm": 177.8,
+    "weight_in_kg": 70.31,
+    "reach_in_cm": 177.8,
+    "stance": "Southpaw",
+    "date_of_birth": "1991-10-27",
+    "significant_strikes_landed_per_minute": 2.63,
+    "significant_striking_accuracy": 58.0,
+    "significant_strikes_absorbed_per_minute": 1.55,
+    "significant_strike_defence": 61.0,
+    "average_takedowns_landed_per_15_minutes": 3.2,
+    "takedown_accuracy": 53.0,
+    "takedown_defense": 90.0,
+    "average_submissions_attempted_per_15_minutes": 2.63,
+    "fight_history": [
+      {
+        "result": "win",
+        "opponent": "Islam MakhachevRenato Moicano",
+        "event": "00",
+        "method": "69",
+        "round": "10",
+        "time": "10",
+        "location": "UFC 311: Makhachev vs. MoicanoJan. 18, 2025"
+      },
+      {
+        "result": "win",
+        "opponent": "Islam MakhachevDustin Poirier",
+        "event": "00",
+        "method": "8874",
+        "round": "50",
+        "time": "20",
+        "location": "UFC 302: Makhachev vs. PoirierJun. 01, 2024"
+      },
+      {
+        "result": "win",
+        "opponent": "Islam MakhachevAlexander Volkanovski",
+        "event": "10",
+        "method": "244",
+        "round": "00",
+        "time": "00",
+        "location": "UFC 294: Makhachev vs. Volkanovski 2Oct. 21, 2023"
+      },
+      {
+        "result": "win",
+        "opponent": "Islam MakhachevAlexander Volkanovski",
+        "event": "01",
+        "method": "5770",
+        "round": "40",
+        "time": "00",
+        "location": "UFC 284: Makhachev vs. VolkanovskiFeb. 11, 2023"
+      },
+      {
+        "result": "win",
+        "opponent": "Islam MakhachevCharles Oliveira",
+        "event": "10",
+        "method": "3019",
+        "round": "20",
+        "time": "10",
+        "location": "UFC 280: Oliveira vs. MakhachevOct. 22, 2022"
+      },
+      {
+        "result": "win",
+        "opponent": "Islam MakhachevKing Green",
+        "event": "00",
+        "method": "149",
+        "round": "10",
+        "time": "00",
+        "location": "UFC Fight Night: Makhachev vs. GreenFeb. 26, 2022"
+      },
+      {
+        "result": "win",
+        "opponent": "Islam MakhachevDan Hooker",
+        "event": "00",
+        "method": "24",
+        "round": "10",
+        "time": "20",
+        "location": "UFC 267: Blachowicz vs. TeixeiraOct. 30, 2021"
+      },
+      {
+        "result": "win",
+        "opponent": "Islam MakhachevThiago Moises",
+        "event": "00",
+        "method": "6113",
+        "round": "31",
+        "time": "11",
+        "location": "UFC Fight Night: Makhachev vs. MoisesJul. 17, 2021"
+      },
+      {
+        "result": "win",
+        "opponent": "Islam MakhachevDrew Dober",
+        "event": "00",
+        "method": "1510",
+        "round": "30",
+        "time": "20",
+        "location": "UFC 259: Blachowicz vs. AdesanyaMar. 06, 2021"
+      },
+      {
+        "result": "win",
+        "opponent": "Islam MakhachevDavi Ramos",
+        "event": "10",
+        "method": "437",
+        "round": "00",
+        "time": "00",
+        "location": "UFC 242: Khabib vs. PoirierSep. 07, 2019"
+      },
+      {
+        "result": "win",
+        "opponent": "Islam MakhachevArman Tsarukyan",
+        "event": "00",
+        "method": "1413",
+        "round": "41",
+        "time": "00",
+        "location": "UFC Fight Night: Overeem vs. OleinikApr. 20, 2019"
+      },
+      {
+        "result": "win",
+        "opponent": "Islam MakhachevKajan Johnson",
+        "event": "00",
+        "method": "77",
+        "round": "10",
+        "time": "10",
+        "location": "UFC Fight Night: Alvarez vs. Poirier 2Jul. 28, 2018"
+      },
+      {
+        "result": "win",
+        "opponent": "Islam MakhachevGleison Tibau",
+        "event": "10",
+        "method": "32",
+        "round": "00",
+        "time": "00",
+        "location": "UFC 220: Miocic vs. NgannouJan. 20, 2018"
+      },
+      {
+        "result": "win",
+        "opponent": "Islam MakhachevNik Lentz",
+        "event": "00",
+        "method": "4313",
+        "round": "50",
+        "time": "01",
+        "location": "UFC 208: Holm vs. De RandamieFeb. 11, 2017"
+      },
+      {
+        "result": "win",
+        "opponent": "Islam MakhachevChris Wade",
+        "event": "00",
+        "method": "125",
+        "round": "40",
+        "time": "22",
+        "location": "UFC Fight Night: Poirier vs. JohnsonSep. 17, 2016"
+      },
+      {
+        "result": "loss",
+        "opponent": "Islam MakhachevAdriano Martins",
+        "event": "01",
+        "method": "43",
+        "round": "00",
+        "time": "00",
+        "location": "UFC 192: Cormier vs GustafssonOct. 03, 2015"
+      },
+      {
+        "result": "win",
+        "opponent": "Islam MakhachevLeo Kuntz",
+        "event": "00",
+        "method": "327",
+        "round": "30",
+        "time": "10",
+        "location": "UFC 187: Johnson vs CormierMay. 23, 2015"
+      }
+    ]
+  }
+}

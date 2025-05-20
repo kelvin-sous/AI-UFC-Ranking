@@ -239,6 +239,10 @@ def extract_fighter_data(fighter_html: str) -> dict:
     career_data = extract_career_data(soup, fighter_name)
     fight_history = extract_fight_history(soup, fighter_name)
 
+    # Corrigir contagem manual se os dados estiverem faltando
+    if win is None or loss is None or draw is None:
+        win, loss, draw = count_fight_results(fight_history)
+
     return {
         "name": fighter_name,
         "nickname": nickname,
@@ -299,6 +303,19 @@ def search_fighters(search_names):
         found[name.lower()] = data
 
     return found
+
+def count_fight_results(fight_history: list[dict]) -> tuple[int, int, int]:
+    wins = losses = draws = 0
+    for fight in fight_history:
+        result = fight.get("result", "").lower()
+        if result == "win":
+            wins += 1
+        elif result == "loss":
+            losses += 1
+        elif result == "draw":
+            draws += 1
+    return wins, losses, draws
+
 
 def executor():
     fighter1_name = input("Digite o nome do primeiro lutador: ").strip().lower()

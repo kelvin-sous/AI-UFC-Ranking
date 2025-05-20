@@ -1,0 +1,82 @@
+2025-05-20 19:22:50,294 - INFO - Buscando dados para: renato moycano e islam makachev
+2025-05-20 19:22:50,294 - INFO - Buscando na letra: M
+2025-05-20 19:26:21,728 - INFO - Buscando na letra: M
+2025-05-20 19:29:49,549 - INFO - ================================================================================
+2025-05-20 19:29:49,550 - INFO - Informações detalhadas de Renato Moicano
+2025-05-20 19:29:49,551 - INFO -   name: Renato Moicano
+2025-05-20 19:29:49,551 - INFO -   nickname: None
+2025-05-20 19:29:49,552 - INFO -   wins: 20
+2025-05-20 19:29:49,552 - INFO -   losses: 6
+2025-05-20 19:29:49,553 - INFO -   draws: 1
+2025-05-20 19:29:49,553 - INFO -   height_cm: 180.34
+2025-05-20 19:29:49,553 - INFO -   weight_in_kg: 70.31
+2025-05-20 19:29:49,553 - INFO -   reach_in_cm: 182.88
+2025-05-20 19:29:49,554 - INFO -   stance: Orthodox
+2025-05-20 19:29:49,554 - INFO -   date_of_birth: 1989-05-21
+2025-05-20 19:29:49,554 - INFO -   significant_strikes_landed_per_minute: 4.36
+2025-05-20 19:29:49,554 - INFO -   significant_striking_accuracy: 48.0
+2025-05-20 19:29:49,554 - INFO -   significant_strikes_absorbed_per_minute: 3.55
+2025-05-20 19:29:49,554 - INFO -   significant_strike_defence: 60.0
+2025-05-20 19:29:49,554 - INFO -   average_takedowns_landed_per_15_minutes: 1.82
+2025-05-20 19:29:49,555 - INFO -   takedown_accuracy: 44.0
+2025-05-20 19:29:49,555 - INFO -   takedown_defense: 71.0
+2025-05-20 19:29:49,555 - INFO -   average_submissions_attempted_per_15_minutes: 4.36
+2025-05-20 19:29:49,555 - INFO -   Histórico de lutas (19 lutas):
+2025-05-20 19:29:49,556 - INFO -     - Renato Moicano vs Renato MoicanoBeneil Dariush (next - MatchupPreviewUFC 317: Topuria vs. OliveiraJun. 28, 2025, R?, UFC 317: Topuria vs. OliveiraJun. 28, 2025, )
+2025-05-20 19:29:49,556 - INFO -     - Renato Moicano vs Renato MoicanoIslam Makhachev (loss - 00, R1, 01, UFC 311: Makhachev vs. MoicanoJan. 18, 2025)
+2025-05-20 19:29:49,556 - INFO -     - Renato Moicano vs Renato MoicanoBenoit Saint Denis (win - 00, R10, 00, UFC Fight Night: Moicano vs. Saint DenisSep. 28, 2024)
+2025-05-20 19:29:49,557 - INFO -     - Renato Moicano vs Renato MoicanoJalin Turner (win - 01, R20, 00, UFC 300: Pereira vs. HillApr. 13, 2024)
+2025-05-20 19:29:49,557 - INFO -     - Renato Moicano vs Renato MoicanoDrew Dober (win - 00, R31, 00, UFC Fight Night: Dolidze vs. ImavovFeb. 03, 2024)
+2025-05-20 19:29:49,557 - INFO -     - Renato Moicano vs Renato MoicanoBrad Riddell (win - 00, R0, 10, UFC 281: Adesanya vs. PereiraNov. 12, 2022)
+2025-05-20 19:29:49,557 - INFO -     - Renato Moicano vs Renato MoicanoRafael Dos Anjos (loss - 01, R5, 00, UFC 272: Covington vs. MasvidalMar. 05, 2022)
+2025-05-20 19:29:49,558 - INFO -     - Renato Moicano vs Renato MoicanoAlexander Hernandez (win - 00, R20, 10, UFC 271: Adesanya vs. Whittaker 2Feb. 12, 2022)
+2025-05-20 19:29:49,558 - INFO -     - Renato Moicano vs Renato MoicanoJai Herbert (win - 00, R50, 10, UFC Fight Night: Gane vs. VolkovJun. 26, 2021)
+2025-05-20 19:29:49,558 - INFO -     - Renato Moicano vs Renato MoicanoRafael Fiziev (loss - 01, R0, 00, UFC 256: Figueiredo vs. MorenoDec. 12, 2020)
+2025-05-20 19:29:49,558 - INFO -     - Renato Moicano vs Renato MoicanoDamir Hadzovic (win - 00, R10, 10, UFC Fight Night: Lee vs. OliveiraMar. 14, 2020)
+2025-05-20 19:29:49,559 - INFO -     - Renato Moicano vs Renato MoicanoChan Sung Jung (loss - 01, R0, 00, UFC Fight Night: Moicano vs. The Korean ZombieJun. 22, 2019)
+2025-05-20 19:29:49,559 - INFO -     - Renato Moicano vs Renato MoicanoJose Aldo (loss - 00, R0, 00, UFC Fight Night: Assuncao vs. Moraes 2Feb. 02, 2019)
+2025-05-20 19:29:49,559 - INFO -     - Renato Moicano vs Renato MoicanoCub Swanson (win - 10, R10, 10, UFC 227: Dillashaw vs. Garbrandt 2Aug. 04, 2018)
+2025-05-20 19:29:49,559 - INFO -     - Renato Moicano vs Renato MoicanoCalvin Kattar (win - 00, R0, 00, UFC 223: Khabib vs. IaquintaApr. 07, 2018)
+2025-05-20 19:29:49,559 - INFO -     - Renato Moicano vs Renato MoicanoBrian Ortega (loss - 00, R20, 01, UFC 214: Cormier vs. Jones 2Jul. 29, 2017)
+2025-05-20 19:29:49,559 - INFO -     - Renato Moicano vs Renato MoicanoJeremy Stephens (win - 00, R20, 00, UFC on FOX: Johnson vs. ReisApr. 15, 2017)
+2025-05-20 19:29:49,560 - INFO -     - Renato Moicano vs Renato MoicanoZubaira Tukhugov (win - 00, R3, 00, UFC 198: Werdum vs MiocicMay. 14, 2016)
+2025-05-20 19:29:49,560 - INFO -     - Renato Moicano vs Renato MoicanoTom Niinimaki (win - 00, R10, 10, UFC Fight Night: Machida vs DollawayDec. 20, 2014)
+2025-05-20 19:29:49,560 - INFO - ================================================================================
+2025-05-20 19:29:49,560 - INFO - Informações detalhadas de Islam Makhachev
+2025-05-20 19:29:49,561 - INFO -   name: Islam Makhachev
+2025-05-20 19:29:49,561 - INFO -   nickname: None
+2025-05-20 19:29:49,561 - INFO -   wins: 27
+2025-05-20 19:29:49,561 - INFO -   losses: 1
+2025-05-20 19:29:49,562 - INFO -   draws: 0
+2025-05-20 19:29:49,562 - INFO -   height_cm: 177.8
+2025-05-20 19:29:49,562 - INFO -   weight_in_kg: 70.31
+2025-05-20 19:29:49,562 - INFO -   reach_in_cm: 177.8
+2025-05-20 19:29:49,562 - INFO -   stance: Southpaw
+2025-05-20 19:29:49,563 - INFO -   date_of_birth: 1991-10-27
+2025-05-20 19:29:49,563 - INFO -   significant_strikes_landed_per_minute: 2.63
+2025-05-20 19:29:49,563 - INFO -   significant_striking_accuracy: 58.0
+2025-05-20 19:29:49,563 - INFO -   significant_strikes_absorbed_per_minute: 1.55
+2025-05-20 19:29:49,563 - INFO -   significant_strike_defence: 61.0
+2025-05-20 19:29:49,564 - INFO -   average_takedowns_landed_per_15_minutes: 3.2
+2025-05-20 19:29:49,564 - INFO -   takedown_accuracy: 53.0
+2025-05-20 19:29:49,564 - INFO -   takedown_defense: 90.0
+2025-05-20 19:29:49,564 - INFO -   average_submissions_attempted_per_15_minutes: 2.63
+2025-05-20 19:29:49,564 - INFO -   Histórico de lutas (17 lutas):
+2025-05-20 19:29:49,565 - INFO -     - Islam Makhachev vs Islam MakhachevRenato Moicano (win - 00, R10, 10, UFC 311: Makhachev vs. MoicanoJan. 18, 2025)
+2025-05-20 19:29:49,565 - INFO -     - Islam Makhachev vs Islam MakhachevDustin Poirier (win - 00, R50, 20, UFC 302: Makhachev vs. PoirierJun. 01, 2024)
+2025-05-20 19:29:49,565 - INFO -     - Islam Makhachev vs Islam MakhachevAlexander Volkanovski (win - 10, R0, 00, UFC 294: Makhachev vs. Volkanovski 2Oct. 21, 2023)
+2025-05-20 19:29:49,565 - INFO -     - Islam Makhachev vs Islam MakhachevAlexander Volkanovski (win - 01, R40, 00, UFC 284: Makhachev vs. VolkanovskiFeb. 11, 2023)
+2025-05-20 19:29:49,565 - INFO -     - Islam Makhachev vs Islam MakhachevCharles Oliveira (win - 10, R20, 10, UFC 280: Oliveira vs. MakhachevOct. 22, 2022)
+2025-05-20 19:29:49,565 - INFO -     - Islam Makhachev vs Islam MakhachevKing Green (win - 00, R10, 00, UFC Fight Night: Makhachev vs. GreenFeb. 26, 2022)
+2025-05-20 19:29:49,566 - INFO -     - Islam Makhachev vs Islam MakhachevDan Hooker (win - 00, R10, 20, UFC 267: Blachowicz vs. TeixeiraOct. 30, 2021)
+2025-05-20 19:29:49,566 - INFO -     - Islam Makhachev vs Islam MakhachevThiago Moises (win - 00, R31, 11, UFC Fight Night: Makhachev vs. MoisesJul. 17, 2021)
+2025-05-20 19:29:49,566 - INFO -     - Islam Makhachev vs Islam MakhachevDrew Dober (win - 00, R30, 20, UFC 259: Blachowicz vs. AdesanyaMar. 06, 2021)
+2025-05-20 19:29:49,566 - INFO -     - Islam Makhachev vs Islam MakhachevDavi Ramos (win - 10, R0, 00, UFC 242: Khabib vs. PoirierSep. 07, 2019)
+2025-05-20 19:29:49,566 - INFO -     - Islam Makhachev vs Islam MakhachevArman Tsarukyan (win - 00, R41, 00, UFC Fight Night: Overeem vs. OleinikApr. 20, 2019)
+2025-05-20 19:29:49,566 - INFO -     - Islam Makhachev vs Islam MakhachevKajan Johnson (win - 00, R10, 10, UFC Fight Night: Alvarez vs. Poirier 2Jul. 28, 2018)
+2025-05-20 19:29:49,567 - INFO -     - Islam Makhachev vs Islam MakhachevGleison Tibau (win - 10, R0, 00, UFC 220: Miocic vs. NgannouJan. 20, 2018)
+2025-05-20 19:29:49,567 - INFO -     - Islam Makhachev vs Islam MakhachevNik Lentz (win - 00, R50, 01, UFC 208: Holm vs. De RandamieFeb. 11, 2017)
+2025-05-20 19:29:49,567 - INFO -     - Islam Makhachev vs Islam MakhachevChris Wade (win - 00, R40, 22, UFC Fight Night: Poirier vs. JohnsonSep. 17, 2016)
+2025-05-20 19:29:49,567 - INFO -     - Islam Makhachev vs Islam MakhachevAdriano Martins (loss - 01, R0, 00, UFC 192: Cormier vs GustafssonOct. 03, 2015)
+2025-05-20 19:29:49,568 - INFO -     - Islam Makhachev vs Islam MakhachevLeo Kuntz (win - 00, R30, 10, UFC 187: Johnson vs CormierMay. 23, 2015)
+2025-05-20 19:29:49,570 - INFO - Arquivo salvo: Renato Moicano x Islam Makhachev.json

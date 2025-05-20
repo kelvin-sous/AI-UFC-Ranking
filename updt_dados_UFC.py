@@ -217,7 +217,6 @@ def extract_fighter_data(fighter_html: str) -> dict:
         **career_data
     }
 
-# Substituir a parte de busca por isso:
 def search_fighters(search_names):
     found = {}
     for name in search_names:
@@ -230,6 +229,7 @@ def search_fighters(search_names):
         else:
             links = cached_links
 
+        matching_fighters = []
         for link in links:
             try:
                 page = basic_request(link, LOGGER)
@@ -238,11 +238,32 @@ def search_fighters(search_names):
 
                 if similar(fighter_name, name):
                     data = extract_fighter_data(page)
-                    found[fighter_name] = data
-                    LOGGER.info("Encontrado: %s", fighter_name)
-                    break
+                    matching_fighters.append((fighter_name, data))
             except Exception as e:
                 LOGGER.warning("Erro ao processar link %s: %s", link, format_error(e))
+
+        if len(matching_fighters) == 0:
+            LOGGER.warning(f"Nenhum lutador encontrado para {name}")
+        elif len(matching_fighters) == 1:
+            found[name] = matching_fighters[0][1]
+        else:
+            print(f"\nForam encontrados múltiplos lutadores com nome parecido a '{name}':")
+            for idx, (f_name, data) in enumerate(matching_fighters, 1):
+                nickname = data.get("nickname", "")
+                birth = data.get("date_of_birth", "Desconhecido")
+                print(f"{idx}. {data['name']} (Apelido: {nickname}, Nasc.: {birth})")
+
+            while True:
+                try:
+                    choice = int(input(f"Escolha o número correspondente ao lutador '{name}': "))
+                    if 1 <= choice <= len(matching_fighters):
+                        found[name] = matching_fighters[choice - 1][1]
+                        break
+                    else:
+                        print("Número inválido, tente novamente.")
+                except ValueError:
+                    print("Entrada inválida, digite um número.")
+
     return found
 
 def executor():

@@ -1,25 +1,5 @@
 [
   {
-    "name": "Alex Oliveira",
-    "nickname": "Cowboy",
-    "wins": null,
-    "losses": null,
-    "draws": null,
-    "height_cm": 180.34,
-    "weight_in_kg": 77.11,
-    "reach_in_cm": 193.04,
-    "stance": "Orthodox",
-    "date_of_birth": "1988-02-21",
-    "significant_strikes_landed_per_minute": 2.99,
-    "significant_striking_accuracy": 51.0,
-    "significant_strikes_absorbed_per_minute": 2.55,
-    "significant_strike_defence": 46.0,
-    "average_takedowns_landed_per_15_minutes": 2.35,
-    "takedown_accuracy": 38.0,
-    "takedown_defense": 63.0,
-    "average_submissions_attempted_per_15_minutes": 2.99
-  },
-  {
     "name": "Ilia Topuria",
     "nickname": "El Matador",
     "wins": 16,
@@ -38,5 +18,25 @@
     "takedown_accuracy": 61.0,
     "takedown_defense": 92.0,
     "average_submissions_attempted_per_15_minutes": 4.69
+  },
+  {
+    "name": "Charles Oliveira",
+    "nickname": "Do Bronxs",
+    "wins": null,
+    "losses": null,
+    "draws": null,
+    "height_cm": 177.8,
+    "weight_in_kg": 70.31,
+    "reach_in_cm": 187.96,
+    "stance": "Orthodox",
+    "date_of_birth": "1989-10-17",
+    "significant_strikes_landed_per_minute": 3.4,
+    "significant_striking_accuracy": 55.0,
+    "significant_strikes_absorbed_per_minute": 3.21,
+    "significant_strike_defence": 49.0,
+    "average_takedowns_landed_per_15_minutes": 2.25,
+    "takedown_accuracy": 40.0,
+    "takedown_defense": 56.0,
+    "average_submissions_attempted_per_15_minutes": 3.4
   }
 ]

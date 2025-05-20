@@ -9,15 +9,13 @@ import json
 
 import pint
 from bs4 import BeautifulSoup
-from icecream import ic
 import requests
-
-RUN_ONLY_ONE = False  # only extracts 1 iteration
-RUN_25_ITR = True     # Extracts 25 fighters for testing
-IS_IC_DEBUG = False   # Enable debug prints with icecream
+from difflib import SequenceMatcher
 
 PROJECT_NAME = 'scrape_ufc_stats'
 LOGGER = None
+
+CACHE_PATH = os.path.join(os.getcwd(), 'data', 'interim', 'fighter_links_cache.json')
 
 def setup_basic_file_paths(project_name: str):
     base_folder = os.getcwd()
@@ -36,7 +34,7 @@ def setup_logger(log_file_path: str):
     logger = logging.getLogger(PROJECT_NAME)
     logger.setLevel(logging.DEBUG)
 
-    fh = logging.FileHandler(log_file_path)
+    fh = logging.FileHandler(log_file_path, mode='w', encoding='utf-8')
     fh.setLevel(logging.DEBUG)
 
     ch = logging.StreamHandler()
@@ -70,10 +68,6 @@ def basic_request(url: str, logger: Optional[logging.Logger] = None, retries: in
             time.sleep(delay)
     raise RuntimeError(f"Failed to fetch URL: {url}")
 
-def save_ndjson(data: dict, file_path: str):
-    with open(file_path, 'a', encoding='utf-8') as f:
-        f.write(json.dumps(data, ensure_ascii=False) + '\n')
-
 def format_error(error: Exception) -> str:
     return f"{type(error).__name__}: {str(error)}"
 
@@ -83,27 +77,32 @@ def extract_fighter_pagelinks_from_serp(html: str) -> set[str]:
     links = [tag.get('href') for tag in tags if tag.get('href')]
     return set(links)
 
-def get_fighters() -> set[str]:
-    LOGGER.info('Starting to get fighters from SERPS')
-    letters = string.ascii_lowercase
-    all_links = set()
+def get_fighters_by_letter(letter: str) -> set[str]:
+    url = f'http://ufcstats.com/statistics/fighters?char={letter}&page=all'
+    try:
+        html = basic_request(url, LOGGER)
+        return extract_fighter_pagelinks_from_serp(html)
+    except RuntimeError:
+        return set()
 
-    for letter in letters:
-        LOGGER.info('Extracting letter %s', letter)
-        url = f'http://ufcstats.com/statistics/fighters?char={letter}&page=all'
-        try:
-            html = basic_request(url, LOGGER)
-        except RuntimeError:
-            continue
+def similar(a: str, b: str) -> bool:
+    return SequenceMatcher(None, a.lower(), b.lower()).ratio() > 0.8
 
-        links = extract_fighter_pagelinks_from_serp(html)
-        all_links.update(links)
+def get_cached_fighters(letter: str) -> set[str]:
+    if os.path.exists(CACHE_PATH):
+        with open(CACHE_PATH, 'r', encoding='utf-8') as f:
+            cache = json.load(f)
+            return set(cache.get(letter.upper(), []))
+    return set()
 
-        if RUN_ONLY_ONE:
-            break
-
-    LOGGER.info('Found %d unique links', len(all_links))
-    return all_links
+def update_cache(letter: str, links: set[str]):
+    cache = {}
+    if os.path.exists(CACHE_PATH):
+        with open(CACHE_PATH, 'r', encoding='utf-8') as f:
+            cache = json.load(f)
+    cache[letter.upper()] = list(links)
+    with open(CACHE_PATH, 'w', encoding='utf-8') as f:
+        json.dump(cache, f, indent=2)
 
 def extract_bio_data(soup: BeautifulSoup, fighter_name: str) -> dict:
     try:
@@ -218,39 +217,58 @@ def extract_fighter_data(fighter_html: str) -> dict:
         **career_data
     }
 
-def get_n_extract_fighter_data(link: str) -> dict:
-    try:
-        page = basic_request(link, LOGGER)
-    except RuntimeError as error:
-        raise RuntimeError from error
-    return extract_fighter_data(page)
+# Substituir a parte de busca por isso:
+def search_fighters(search_names):
+    found = {}
+    for name in search_names:
+        letter = name.strip().split()[-1][0].upper()  # primeira letra do sobrenome
+        LOGGER.info(f"Buscando na letra: {letter}")
+        cached_links = get_cached_fighters(letter)
+        if not cached_links:
+            links = get_fighters_by_letter(letter)
+            update_cache(letter, links)
+        else:
+            links = cached_links
 
-def executor() -> None:
+        for link in links:
+            try:
+                page = basic_request(link, LOGGER)
+                soup = BeautifulSoup(page, 'html.parser')
+                fighter_name = soup.select_one('.b-content__title-highlight').get_text(strip=True).lower()
+
+                if similar(fighter_name, name):
+                    data = extract_fighter_data(page)
+                    found[fighter_name] = data
+                    LOGGER.info("Encontrado: %s", fighter_name)
+                    break
+            except Exception as e:
+                LOGGER.warning("Erro ao processar link %s: %s", link, format_error(e))
+    return found
+
+def executor():
     global LOGGER
+    _, data_folder, _, _, _ = setup_basic_file_paths(PROJECT_NAME)
+    log_path = os.path.join(data_folder, 'Informacao_Lutadores.log')
+    LOGGER = setup_logger(log_path)
 
-    _, data_folder, _, _, log_file_path = setup_basic_file_paths(PROJECT_NAME)
-    LOGGER = setup_logger(log_file_path)
+    name_1 = input("Digite o nome do primeiro lutador: ").strip().lower()
+    name_2 = input("Digite o nome do segundo lutador: ").strip().lower()
+    search_names = {name_1, name_2}
 
-    fighter_links = get_fighters()
-    ndjson_file_path = os.path.join(data_folder, 'fighter_data.ndjson')
+    LOGGER.info("Buscando dados para: %s e %s", name_1, name_2)
 
-    for i, fighter in enumerate(fighter_links):
-        LOGGER.info('Processing %d out of %d. Fighter url: %s', i + 1, len(fighter_links), fighter)
-        try:
-            fighter_data = get_n_extract_fighter_data(fighter)
-            save_ndjson(fighter_data, ndjson_file_path)
+    found = search_fighters(search_names)
 
-            if RUN_ONLY_ONE:
-                break
-            if RUN_25_ITR and i == 24:
-                break
-        except RuntimeError:
-            LOGGER.debug('Skipping fighter due to request error: %s', fighter)
-            if RUN_ONLY_ONE or (RUN_25_ITR and i == 24):
-                break
-            continue
+    if len(found) < 2:
+        LOGGER.warning("Nem todos os lutadores foram encontrados. Encontrados: %s", list(found.keys()))
+    else:
+        for fighter in found.values():
+            LOGGER.info("Dados de %s:", fighter["name"])
+            for k, v in fighter.items():
+                LOGGER.info("  %s: %s", k, v)
 
-    LOGGER.info('Finished the executor')
+        with open(os.path.join(data_folder, 'lutadores.json'), 'w', encoding='utf-8') as f:
+            json.dump(list(found.values()), f, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
     executor()

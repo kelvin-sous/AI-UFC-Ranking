@@ -1,0 +1,43 @@
+2025-05-20 18:00:49,996 - INFO - Buscando dados para: charles oliveira e ilia topuria
+2025-05-20 18:00:49,996 - INFO - Buscando na letra: O
+2025-05-20 18:00:53,488 - INFO - Encontrado: alex oliveira
+2025-05-20 18:00:53,489 - INFO - Buscando na letra: T
+2025-05-20 18:02:03,044 - INFO - Encontrado: ilia topuria
+2025-05-20 18:02:03,044 - INFO - Dados de Alex Oliveira:
+2025-05-20 18:02:03,045 - INFO -   name: Alex Oliveira
+2025-05-20 18:02:03,045 - INFO -   nickname: Cowboy
+2025-05-20 18:02:03,045 - INFO -   wins: None
+2025-05-20 18:02:03,045 - INFO -   losses: None
+2025-05-20 18:02:03,045 - INFO -   draws: None
+2025-05-20 18:02:03,045 - INFO -   height_cm: 180.34
+2025-05-20 18:02:03,045 - INFO -   weight_in_kg: 77.11
+2025-05-20 18:02:03,046 - INFO -   reach_in_cm: 193.04
+2025-05-20 18:02:03,046 - INFO -   stance: Orthodox
+2025-05-20 18:02:03,046 - INFO -   date_of_birth: 1988-02-21
+2025-05-20 18:02:03,046 - INFO -   significant_strikes_landed_per_minute: 2.99
+2025-05-20 18:02:03,046 - INFO -   significant_striking_accuracy: 51.0
+2025-05-20 18:02:03,046 - INFO -   significant_strikes_absorbed_per_minute: 2.55
+2025-05-20 18:02:03,046 - INFO -   significant_strike_defence: 46.0
+2025-05-20 18:02:03,047 - INFO -   average_takedowns_landed_per_15_minutes: 2.35
+2025-05-20 18:02:03,047 - INFO -   takedown_accuracy: 38.0
+2025-05-20 18:02:03,047 - INFO -   takedown_defense: 63.0
+2025-05-20 18:02:03,047 - INFO -   average_submissions_attempted_per_15_minutes: 2.99
+2025-05-20 18:02:03,047 - INFO - Dados de Ilia Topuria:
+2025-05-20 18:02:03,047 - INFO -   name: Ilia Topuria
+2025-05-20 18:02:03,047 - INFO -   nickname: El Matador
+2025-05-20 18:02:03,048 - INFO -   wins: 16
+2025-05-20 18:02:03,048 - INFO -   losses: 0
+2025-05-20 18:02:03,048 - INFO -   draws: 0
+2025-05-20 18:02:03,048 - INFO -   height_cm: 170.18
+2025-05-20 18:02:03,048 - INFO -   weight_in_kg: 70.31
+2025-05-20 18:02:03,048 - INFO -   reach_in_cm: 175.26
+2025-05-20 18:02:03,048 - INFO -   stance: Orthodox
+2025-05-20 18:02:03,049 - INFO -   date_of_birth: 1997-01-21
+2025-05-20 18:02:03,049 - INFO -   significant_strikes_landed_per_minute: 4.69
+2025-05-20 18:02:03,049 - INFO -   significant_striking_accuracy: 47.0
+2025-05-20 18:02:03,049 - INFO -   significant_strikes_absorbed_per_minute: 3.84
+2025-05-20 18:02:03,049 - INFO -   significant_strike_defence: 64.0
+2025-05-20 18:02:03,049 - INFO -   average_takedowns_landed_per_15_minutes: 2.02
+2025-05-20 18:02:03,049 - INFO -   takedown_accuracy: 61.0
+2025-05-20 18:02:03,050 - INFO -   takedown_defense: 92.0
+2025-05-20 18:02:03,050 - INFO -   average_submissions_attempted_per_15_minutes: 4.69

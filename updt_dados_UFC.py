@@ -185,6 +185,37 @@ def extract_career_data(soup: BeautifulSoup, fighter_name: str) -> dict:
             'takedown_defense',
             'average_submissions_attempted_per_15_minutes']}
 
+def extract_fight_history(soup: BeautifulSoup, fighter_name: str) -> list[dict]:
+    history = []
+    try:
+        table = soup.select_one('.b-fight-details__table')
+        rows = table.select('tr.b-fight-details__table-row') if table else []
+
+        for row in rows:
+            cols = row.find_all('td')
+            if len(cols) >= 7:
+                result = cols[0].get_text(strip=True)
+                opponent = cols[1].get_text(strip=True)
+                event = cols[2].get_text(strip=True)
+                method = cols[3].get_text(strip=True)
+                round_ = cols[4].get_text(strip=True)
+                time_ = cols[5].get_text(strip=True)
+                location = cols[6].get_text(strip=True)
+
+                history.append({
+                    "result": result,
+                    "opponent": opponent,
+                    "event": event,
+                    "method": method,
+                    "round": round_,
+                    "time": time_,
+                    "location": location
+                })
+    except Exception as e:
+        LOGGER.warning("Erro ao extrair histórico de lutas de %s: %s", fighter_name, format_error(e))
+
+    return history
+
 def extract_fighter_data(fighter_html: str) -> dict:
     soup = BeautifulSoup(fighter_html, 'html.parser')
 
@@ -206,6 +237,7 @@ def extract_fighter_data(fighter_html: str) -> dict:
 
     bio_data = extract_bio_data(soup, fighter_name)
     career_data = extract_career_data(soup, fighter_name)
+    fight_history = extract_fight_history(soup, fighter_name)
 
     return {
         "name": fighter_name,
@@ -214,13 +246,15 @@ def extract_fighter_data(fighter_html: str) -> dict:
         "losses": loss,
         "draws": draw,
         **bio_data,
-        **career_data
+        **career_data,
+        "fight_history": fight_history
     }
 
 def search_fighters(search_names):
     found = {}
+
     for name in search_names:
-        letter = name.strip().split()[-1][0].upper()  # primeira letra do sobrenome
+        letter = name.strip().split()[-1][0].upper()
         LOGGER.info(f"Buscando na letra: {letter}")
         cached_links = get_cached_fighters(letter)
         if not cached_links:
@@ -229,7 +263,7 @@ def search_fighters(search_names):
         else:
             links = cached_links
 
-        matching_fighters = []
+        candidates = []
         for link in links:
             try:
                 page = basic_request(link, LOGGER)
@@ -237,59 +271,86 @@ def search_fighters(search_names):
                 fighter_name = soup.select_one('.b-content__title-highlight').get_text(strip=True).lower()
 
                 if similar(fighter_name, name):
-                    data = extract_fighter_data(page)
-                    matching_fighters.append((fighter_name, data))
+                    candidates.append((fighter_name, page))
             except Exception as e:
                 LOGGER.warning("Erro ao processar link %s: %s", link, format_error(e))
 
-        if len(matching_fighters) == 0:
-            LOGGER.warning(f"Nenhum lutador encontrado para {name}")
-        elif len(matching_fighters) == 1:
-            found[name] = matching_fighters[0][1]
+        if len(candidates) == 0:
+            LOGGER.warning("Nenhum lutador encontrado com nome similar a '%s'.", name)
+            continue
+        elif len(candidates) == 1:
+            selected_name, selected_page = candidates[0]
         else:
-            print(f"\nForam encontrados múltiplos lutadores com nome parecido a '{name}':")
-            for idx, (f_name, data) in enumerate(matching_fighters, 1):
-                nickname = data.get("nickname", "")
-                birth = data.get("date_of_birth", "Desconhecido")
-                print(f"{idx}. {data['name']} (Apelido: {nickname}, Nasc.: {birth})")
-
+            print(f"\nForam encontrados múltiplos lutadores semelhantes a '{name}':")
+            for idx, (fighter_name, _) in enumerate(candidates, start=1):
+                print(f"{idx}. {fighter_name}")
             while True:
                 try:
-                    choice = int(input(f"Escolha o número correspondente ao lutador '{name}': "))
-                    if 1 <= choice <= len(matching_fighters):
-                        found[name] = matching_fighters[choice - 1][1]
+                    choice = int(input(f"Escolha o número correspondente ao lutador desejado (1-{len(candidates)}): "))
+                    if 1 <= choice <= len(candidates):
+                        selected_name, selected_page = candidates[choice - 1]
                         break
                     else:
-                        print("Número inválido, tente novamente.")
+                        print("Escolha inválida. Tente novamente.")
                 except ValueError:
-                    print("Entrada inválida, digite um número.")
+                    print("Entrada inválida. Digite um número.")
+
+        data = extract_fighter_data(selected_page)
+        found[name.lower()] = data
 
     return found
 
 def executor():
-    global LOGGER
-    _, data_folder, _, _, _ = setup_basic_file_paths(PROJECT_NAME)
-    log_path = os.path.join(data_folder, 'Informacao_Lutadores.log')
-    LOGGER = setup_logger(log_path)
+    fighter1_name = input("Digite o nome do primeiro lutador: ").strip().lower()
+    fighter2_name = input("Digite o nome do segundo lutador: ").strip().lower()
 
-    name_1 = input("Digite o nome do primeiro lutador: ").strip().lower()
-    name_2 = input("Digite o nome do segundo lutador: ").strip().lower()
-    search_names = {name_1, name_2}
+    LOGGER.info("Buscando dados para: %s e %s", fighter1_name, fighter2_name)
 
-    LOGGER.info("Buscando dados para: %s e %s", name_1, name_2)
+    results = search_fighters([fighter1_name, fighter2_name])
+    fighter1 = results.get(fighter1_name)
+    fighter2 = results.get(fighter2_name)
 
-    found = search_fighters(search_names)
+    if not fighter1 or not fighter2:
+        LOGGER.error("Um dos lutadores não foi encontrado.")
+        return
 
-    if len(found) < 2:
-        LOGGER.warning("Nem todos os lutadores foram encontrados. Encontrados: %s", list(found.keys()))
-    else:
-        for fighter in found.values():
-            LOGGER.info("Dados de %s:", fighter["name"])
-            for k, v in fighter.items():
-                LOGGER.info("  %s: %s", k, v)
+    for fighter in [fighter1, fighter2]:
+        LOGGER.info("=" * 80)
+        LOGGER.info("Informações detalhadas de %s", fighter["name"])
+        for key, value in fighter.items():
+            if key != "fight_history":
+                LOGGER.info("  %s: %s", key, value)
 
-        with open(os.path.join(data_folder, 'lutadores.json'), 'w', encoding='utf-8') as f:
-            json.dump(list(found.values()), f, indent=2, ensure_ascii=False)
+        LOGGER.info("  Histórico de lutas (%d lutas):", len(fighter.get("fight_history", [])))
+        for fight in fighter.get("fight_history", []):
+            round_str = fight.get("round", "")
+            try:
+                round_num = int(round_str)
+            except ValueError:
+                round_num = "?"
+
+            LOGGER.info("    - %s vs %s (%s - %s, R%s, %s, %s)",
+                        fighter["name"],
+                        fight.get("opponent", "?"),
+                        fight.get("result", "?"),
+                        fight.get("event", "?"),
+                        round_num,
+                        fight.get("time", "?"),
+                        fight.get("location", "?"))
+    safe_filename = f"{fighter1['name']} x {fighter2['name']}".replace("/", "-").replace("\\", "-").replace("?", "").replace(":", "").replace("*", "").replace('"', '').replace("<", "").replace(">", "").replace("|", "")
+    filename = f"{safe_filename}.json"
+
+    combined_data = {
+        "lutador_1": fighter1,
+        "lutador_2": fighter2
+    }
+
+    with open(filename, "w", encoding="utf-8") as f:
+        json.dump(combined_data, f, ensure_ascii=False, indent=2)
+
+    LOGGER.info("Arquivo salvo: %s", filename)
 
 if __name__ == "__main__":
+    base, data, raw, interim, log_path = setup_basic_file_paths(PROJECT_NAME)
+    LOGGER = setup_logger(log_path)
     executor()
